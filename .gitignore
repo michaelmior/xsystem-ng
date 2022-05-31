@@ -31,7 +31,6 @@ hs_err_pid*
 build/
 .idea/
 .DS_Store
-gradle/wrapper/gradle-wrapper.jar
 
 # Eclipse classpath files
 *.classpath
