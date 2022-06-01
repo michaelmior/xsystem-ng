@@ -22,7 +22,7 @@ public class LibraryImplementationTest {
     static int numAttributes = 6;
     static int maxStringLength = 10;
     final static String folder = "src/test/resources/csv";
-    final static String outFolder = "src/test/resources/output/learned/";
+    private static String tmpDir = System.getProperty("java.io.tmpdir");
     private final static Logger LOG = LoggerFactory.getLogger(LibraryImplementationTest.class.getName());
 
     @Test
@@ -33,14 +33,14 @@ public class LibraryImplementationTest {
         CSVGenerator.writeTables(numTables, numRows, numAttributes, maxStringLength);
 
         XSystemImplementation xsyst = new XSystemImplementation();
-        xsyst.learnXStructs(folder, outFolder+"implLearned.json");
+        xsyst.learnXStructs(folder, tmpDir + "implLearned.json");
     }
 
     @Test
     public void readXStructswthTypeTestImpl(){
         BasicConfigurator.configure();
         XSystemImplementation xsyst = new XSystemImplementation();
-        xsyst.readXStructswthType(outFolder+"implLearned.json");
+        xsyst.readXStructswthType(tmpDir + "implLearned.json");
     }
 
     @Test

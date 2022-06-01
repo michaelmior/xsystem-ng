@@ -15,7 +15,7 @@ public class LearnXStructTest {
 	static int numAttributes = 6;
     static int maxStringLength = 10;
     final static String folder = "src/test/resources/csv";
-    final static String outFolder = "src/test/resources/output/learned/";
+    private static String tmpDir = System.getProperty("java.io.tmpdir");
     
     @Test
     public void testLearnXstructs(){
@@ -24,7 +24,7 @@ public class LearnXStructTest {
         new CSVGenerator();
         CSVGenerator.writeTables(numTables, numRows, numAttributes, maxStringLength);
 
-        String outFile = outFolder + "learnedDefault.json";
+        String outFile = tmpDir + "learnedDefault.json";
 
         LearningModel model = new LearningModel();
         
