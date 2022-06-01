@@ -7,6 +7,7 @@ target/
 .vscode/
 bin/
 META-INF/
+src/test/resources/output/validation/regexMatched.json
 
 # Log file
 *.log

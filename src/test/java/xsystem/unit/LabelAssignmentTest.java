@@ -40,13 +40,9 @@ public class LabelAssignmentTest {
         File inputFolder = new File(folder);
 
         try {
-
-            CSVWriter writer = new CSVWriter(new FileWriter("src/test/resources/output/validation/defaultLabels.csv"));
-
             for(File inputFile : inputFolder.listFiles()){
                 String head = "DataLabels from file " + inputFile.getName();
                 String[] header = {head};
-                writer.writeNext(header);
 
                 CSVParser parser = new CSVParserBuilder()
                 .withFieldAsNull(CSVReaderNullFieldIndicator.EMPTY_SEPARATORS)
@@ -84,12 +80,9 @@ public class LabelAssignmentTest {
 
                 for(int i=0; i<labels.size() && i<colName.size(); i++){
                     String[] entry = {colName.get(i), labels.get(i)};
-                    writer.writeNext(entry);
                     LOG.info(colName.get(i) + " is assigned label " + labels.get(i));
                 }
             }
-
-            writer.close();
         } catch (Exception e) {
             LOG.info("[Error] " + e);
         }
