@@ -17,3 +17,8 @@ jobs:
           java-version: '8'
     - name: Test
       run: ./gradlew test
+    - uses: codecov/codecov-action@v3
+      with:
+        token: ${{ secrets.CODECOV_TOKEN }} # not required for public repos
+        fail_ci_if_error: true
+        verbose: true
